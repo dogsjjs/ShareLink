@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en" class="no-focus">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>登录</title>
+    <meta name="description" content="ShareLink">
+    <meta name="author" content="dogsjjs">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="stylesheet" id="css-main" href="assets/css/codebase.min.css">
+</head>
+<body>
+
+<div id="page-container" class="main-content-boxed">
+    <main id="main-container">
+        <div class="bg-gd-dusk">
+            <div class="hero-static content content-full bg-white invisible" data-toggle="appear">
+                <div class="py-30 px-5 text-center">
+                    <a class="link-effect font-w700" href="#">
+                        <i class="si si-share"></i>
+                        <span class="font-size-xl text-primary-dark">Share</span><span class="font-size-xl">Link</span>
+                    </a>
+                    <h1 class="h2 font-w700 mt-50 mb-10">美好的一天</h1>
+                    <h2 class="h4 font-w400 text-muted mb-0">从登录开始</h2>
+                </div>
+
+                <div class="row justify-content-center px-5">
+                    <div class="col-sm-8 col-md-6 col-xl-4">
+                        <form class="signinForm" action="#" method="post">
+                            <div class="form-group row">
+                                <div class="col-12">
+                                    <div class="form-material floating">
+                                        <input type="text" class="form-control" id="username" name="username">
+                                        <label for="username">用户名</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-12">
+                                    <div class="form-material floating">
+                                        <input type="password" class="form-control" id="password" name="password">
+                                        <label for="password">密码</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row gutters-tiny">
+                                <div class="col-12 mb-10">
+                                    <button type="submit" class="btn btn-block btn-hero btn-alt-primary">
+                                        <i class="si si-login mr-10"></i> 登录
+                                    </button>
+                                </div>
+                                <div class="col-sm-6 mb-5">
+                                    <a class="btn btn-block btn-alt-secondary" href="signup.html">
+                                        <i class="fa fa-plus text-muted mr-5"></i> 创建新账户
+                                    </a>
+                                </div>
+                                <div class="col-sm-6 mb-5">
+                                    <a class="btn btn-block btn-alt-secondary" href="reset.html">
+                                        <i class="fa fa-warning text-muted mr-5"></i> 重置密码
+                                    </a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<script src="assets/js/codebase.core.min.js"></script>
+
+<script src="assets/js/codebase.app.min.js"></script>
+
+<script src="assets/js/plugins/jquery-validation/jquery.validate.min.js"></script>
+<script>
+    jQuery(".signinForm").validate({
+        errorClass: "invalid-feedback animated fadeInDown",
+        errorElement: "div",
+        errorPlacement: function (e, n) {
+            jQuery(n).parents(".form-group > div").append(e)
+        },
+        highlight: function (e) {
+            jQuery(e).closest(".form-group").removeClass("is-invalid").addClass("is-invalid")
+        },
+        success: function (e) {
+            jQuery(e).closest(".form-group").removeClass("is-invalid"), jQuery(e).remove()
+        },
+        rules: {
+            "username": {required: !0, minlength: 3},
+            "password": {required: !0, minlength: 5}
+        },
+        messages: {
+            "username": {
+                required: "请输入用户名!",
+                minlength: "您的用户名必须至少包含3个字符"
+            },
+            "password": {
+                required: "请输入密码!",
+                minlength: "您的密码必须至少5个字符长"
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

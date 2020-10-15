@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en" class="no-focus">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <title>重置密码</title>
+        <meta name="description" content="ShareLink">
+        <meta name="author" content="dogsjjs">
+        <meta name="robots" content="noindex, nofollow">
+        <link rel="stylesheet" id="css-main" href="assets/css/codebase.min.css">
+    </head>
+    <body>
+        <div id="page-container" class="main-content-boxed">
+            <main id="main-container">
+                <div class="bg-gd-lake">
+                    <div class="hero-static content content-full bg-white invisible" data-toggle="appear">
+                        <div class="py-30 px-5 text-center">
+                            <a class="link-effect font-w700" href="#">
+                                <i class="si si-share"></i>
+                                <span class="font-size-xl text-primary-dark">Share</span><span class="font-size-xl">Link</span>
+                            </a>
+                            <h1 class="h2 font-w700 mt-50 mb-10">别担心，我们将为您重置密码</h1>
+                            <h2 class="h4 font-w400 text-muted mb-0">请输入注册时填入的邮箱</h2>
+                        </div>
+                        <div class="row justify-content-center px-5">
+                            <div class="col-sm-8 col-md-6 col-xl-4">
+                                <form class="resetForm" action="#" method="post">
+                                    <div class="form-group row">
+                                        <div class="col-12">
+                                            <div class="form-material floating">
+                                                <input type="text" class="form-control" id="email" name="email">
+                                                <label for="email">邮箱</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-block btn-hero btn-alt-primary">
+                                            <i class="fa fa-asterisk mr-10"></i> 重置密码
+                                        </button>
+                                        <a class="btn btn-block btn-alt-secondary" href="signin.html">
+                                            <i class="si si-login text-muted mr-10"></i> 登录
+                                        </a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <script src="assets/js/codebase.core.min.js"></script>
+
+        <script src="assets/js/codebase.app.min.js"></script>
+
+        <script src="assets/js/plugins/jquery-validation/jquery.validate.min.js"></script>
+        <script>
+            jQuery(".resetForm").validate({
+                errorClass: "invalid-feedback animated fadeInDown",
+                errorElement: "div",
+                errorPlacement: function (e, n) {
+                    jQuery(n).parents(".form-group > div").append(e)
+                },
+                highlight: function (e) {
+                    jQuery(e).closest(".form-group").removeClass("is-invalid").addClass("is-invalid")
+                },
+                success: function (e) {
+                    jQuery(e).closest(".form-group").removeClass("is-invalid"), jQuery(e).remove()
+                },
+                rules: {"email": {required: !0, email: !0}},
+                messages: {"email": {required: "请输入有效的邮箱地址!",email:"请输入有效的邮箱地址!"}}
+            })
+        </script>
+
+    </body>
+</html>

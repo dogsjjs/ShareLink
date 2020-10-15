@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="en" class="no-focus">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>动态</title>
+    <link rel="stylesheet" id="css-main" href="assets/css/codebase.min.css">
+    <style>
+        .row {
+            width: 100%;
+            justify-content: center;
+            margin-left: 0;
+        }
+
+        .leftContent {
+            position: fixed;
+            top: 24px;
+
+        }
+
+        .rightContent {
+            position: fixed;
+            top: 24px;
+        }
+
+        .img-border {
+            padding: 5px;
+            background-color: rgba(100, 100, 100, 0.1);
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="page-container" class="side-scroll main-content-narrow">
+
+    <!--侧边栏-->
+    <nav id="sidebar">
+        <div class="sidebar-content">
+            <div class="content-header content-header-fullrow bg-black-op-10">
+                <div class="content-header-section text-center align-parent">
+                    <button type="button" class="btn btn-circle btn-dual-secondary d-lg-none align-v-r"
+                            data-toggle="layout" data-action="sidebar_close">
+                        <i class="fa fa-times text-danger"></i>
+                    </button>
+                    <div class="content-header-item">
+                        <a class="link-effect font-w700" href="javascript:void(0)">
+                            <i class="si si-share text-primary"></i>
+                            <span class="font-size-xl text-dual-primary-dark">Share</span><span
+                                class="font-size-xl text-primary">Link</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-side content-side-full">
+                <ul class="nav-main">
+                    <li>
+                        <a href="javascript:void(0)"><i class="si si-note"></i>分享动态</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)"><i class="si si-envelope"></i>消息</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!--头部-->
+    <header id="page-header">
+        <div class="content-header">
+            <div class="content-header-section w-100">
+                <div class="row no-gutters">
+                    <div class="col">
+                        <button type="button" class="btn btn-dual-secondary d-lg-none" data-toggle="layout"
+                                data-action="sidebar_toggle">
+                            <i class="fa fa-navicon"></i>
+                        </button>
+
+                        <ul class="nav-main-header">
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <i class="si si-note d-none d-xl-inline-block"></i> 分享动态
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <i class="si si-envelope d-none d-xl-inline-block"></i> 消息
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-3 text-center">
+                        <div class="content-header-item">
+                            <a class="link-effect font-w700" href="javascript:void(0)">
+                                <i class="si si-share text-primary"></i>
+                                <span class="d-none d-md-inline-block">
+                                            <span class="font-size-xl text-dual-primary-dark">Share</span><span
+                                        class="font-size-xl text-primary">Link</span>
+                                        </span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col text-right">
+                        <button type="button" class="btn btn-dual-secondary" data-toggle="layout"
+                                data-action="header_search_on">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        <a href="signin.html" class="btn btn-alt-success ml-5">
+                            <i class="si si-login"></i>
+                            <span class="d-none d-sm-inline">登录/注册</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 搜索栏 -->
+        <div id="page-header-search" class="overlay-header">
+            <div class="content-header content-header-fullrow">
+                <form>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <button type="button" class="btn btn-secondary px-15" data-toggle="layout"
+                                    data-action="header_search_off">
+                                <i class="fa fa-times"></i>
+                            </button>
+                        </div>
+                        <input type="text" class="form-control" placeholder="搜索..." id="page-header-search-input"
+                               name="page-header-search-input">
+                        <div class="input-group-append">
+                            <button type="submit" class="btn btn-secondary px-15">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </header>
+
+    <!-- 主体内容-->
+    <main id="main-container">
+
+        <!-- 内容 -->
+        <div class="content">
+            <div class="row">
+                <!-- 用户 左侧消息栏 -->
+                <div id="leftContent" class="left col-lg-4 col-xl-3">
+                    <!-- 用户信息 -->
+                    <div class="block block-rounded text-center font-w600">
+                        <div class="block-content block-content-full bg-gd-sea">
+                            <img class="img-avatar img-avatar-thumb" src="assets/media/avatars/avatar0.jpg" alt="">
+                        </div>
+                        <div class="block-content block-content-full">
+                            <div class="border-b pb-15 mb-15">
+                                断水流<br>
+                                <a class="text-muted font-w400" href="javascript:void(0)">@coder</a>
+                            </div>
+                            <div class="row gutters-tiny">
+                                <div class="col-4">
+                                    <div class="font-size-xs text-muted">动态</div>
+
+
+                                    <a class="font-size-lg" href="javascript:void(0)">10</a>
+                                </div>
+                                <div class="col-4">
+                                    <div class="font-size-xs text-muted">关注</div>
+                                    <a class="font-size-lg" href="javascript:void(0)">25</a>
+                                </div>
+                                <div class="col-4">
+                                    <div class="font-size-xs text-muted">粉丝</div>
+                                    <a class="font-size-lg" href="javascript:void(0)">100</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 热搜-->
+                    <div class="block block-rounded">
+                        <div class="block-header">
+                            <h3 class="block-title font-w600">热搜</h3>
+                        </div>
+                        <div class="block-content">
+                            <a class="font-w600" href="javascript:void(0)">#校园</a>
+                            <p class="text-muted">29.3k 次点击</p>
+                            <a class="font-w600" href="javascript:void(0)">#Java</a>
+                            <p class="text-muted">25.8m 次点击</p>
+                            <a class="font-w600" href="javascript:void(0)">#Vue</a>
+                            <p class="text-muted">19.3k 次点击</p>
+                            <a class="font-w600" href="javascript:void(0)">#HTML</a>
+                            <p class="text-muted">18.6k 次点击</p>
+                            <a class="font-w600" href="javascript:void(0)">#CSS</a>
+                            <p class="text-muted">17.2k 次点击</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 动态 中间内容 -->
+                <div id="centerContent" class="col-lg-4 col-xl-6">
+                    <div class="block block-rounded">
+                        <!--头部动态发送表单-->
+                        <div class="block-content block-content-full bg-primary-light">
+                            <form>
+                                <div class="input-group">
+                                    <input type="text" class="form-control border-0" placeholder="分享你的新鲜事吧">
+                                    <div class="input-group-append">
+                                        <button type="submit" class="btn btn-primary border-0">
+                                            <i class="fa fa-pencil-square-o mr-5"></i> 保存
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="block-content block-content-full">
+                            <div class="media">
+                                <img class="img-avatar img-avatar48 mr-20" src="assets/media/avatars/avatar0.jpg"
+                                     alt="">
+                                <div class="media-body">
+                                    <p class="mb-0">
+                                        <a class="font-w600" href="javascript:void(0)">小老弟</a>
+                                        <a class="text-muted" href="javascript:void(0)">@老弟</a>
+                                        <em class="text-muted">&bull; 30分钟前</em>
+                                    </p>
+                                    <p>
+                                        每个文件都必须给它一个命名，这个名字叫做文件名。文件名分
+                                        为两部分，中间用一个圆点隔开，圆点后面的就是文件的姓，
+                                        叫做扩展名。扩展名前面就是文件的主名。
+                                    </p>
+                                    <button type="button" class="btn btn-sm btn-rounded btn-alt-secondary mr-10">
+                                        <i class="fa fa-fw fa-heart-o"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-sm btn-rounded btn-alt-secondary mr-10">
+                                        <i class="fa fa-fw fa-comment-o"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block-content block-content-full border-t">
+                            <div class="media">
+                                <img class="img-avatar img-avatar48 mr-20" src="assets/media/avatars/avatar0.jpg"
+                                     alt="">
+                                <div class="media-body">
+                                    <p class="mb-0">
+                                        <a class="font-w600" href="javascript:void(0)">哈拉少</a>
+                                        <a class="text-muted" href="javascript:void(0)">@无情</a>
+                                        <em class="text-muted">&bull; 1小时前</em>
+                                    </p>
+                                    <p>
+                                        每个文件都必须给它一个命名，这个名字叫做文件名。文件名分
+                                        为两部分，中间用一个圆点隔开，圆点后面的就是文件的姓，
+                                        叫做扩展名。扩展名前面就是文件的主名。
+                                    </p>
+                                    <img class="img-fluid img-border push"
+                                         src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1602431512878&di=70eafef34032420d17f018c3e5cda3b5&imgtype=0&src=http%3A%2F%2Ftx-free-imgs.acfun.cn%2Fo_1eap1nrr76dkl89h3r16h81ede0.jpeg%3Fimageslim"
+                                         width="100%" alt="">
+                                    <button type="button" class="btn btn-sm btn-rounded btn-alt-secondary mr-10">
+                                        <i class="fa fa-fw fa-heart-o"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-sm btn-rounded btn-alt-secondary mr-10">
+                                        <i class="fa fa-fw fa-comment-o"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block-content block-content-full border-t">
+                            <div class="media">
+                                <img class="img-avatar img-avatar48 mr-20" src="assets/media/avatars/avatar0.jpg"
+                                     alt="">
+                                <div class="media-body">
+                                    <p class="mb-0">
+                                        <a class="font-w600" href="javascript:void(0)">虎哥</a>
+                                        <a class="text-muted" href="javascript:void(0)">@社会你虎哥</a>
+                                        <em class="text-muted">&bull; 一天前</em>
+                                    </p>
+                                    <p>
+                                        你来沈阳，我等你
+                                    </p>
+                                    <img class="img-fluid img-border push"
+                                         src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1113648917,2484826619&fm=26&gp=0.jpg"
+                                         width="100%" alt="">
+                                    <button type="button" class="btn btn-sm btn-rounded btn-alt-secondary mr-10">
+                                        <i class="fa fa-fw fa-heart-o"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-sm btn-rounded btn-alt-secondary mr-10">
+                                        <i class="fa fa-fw fa-comment-o"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--右侧内容-->
+                <div id="rightContent" class="right col-lg-4 col-xl-3">
+                    <!-- 关注 -->
+                    <div class="block block-rounded">
+                        <div class="block-header">
+                            <h3 class="block-title font-w600">关注</h3>
+                        </div>
+                        <div class="block-content block-content-full">
+                            <ul class="nav-users pull-all">
+                                <li>
+                                    <a href="javascript:void(0)">
+                                        <img class="img-avatar" src="assets/media/avatars/avatar0.jpg" alt="">
+                                        <i class="fa fa-circle text-success"></i> 杀马特团长
+                                        <div class="font-w400 font-size-xs text-muted">SMT</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">
+                                        <img class="img-avatar" src="assets/media/avatars/avatar0.jpg" alt="">
+                                        <i class="fa fa-circle text-success"></i> 老八
+                                        <div class="font-w400 font-size-xs text-muted">呕</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">
+                                        <img class="img-avatar" src="assets/media/avatars/avatar0.jpg" alt="">
+                                        <i class="fa fa-circle text-success"></i> 哈拉少
+                                        <div class="font-w400 font-size-xs text-muted">无情</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">
+                                        <img class="img-avatar" src="assets/media/avatars/avatar0.jpg" alt="">
+                                        <i class="fa fa-circle text-success"></i> 奥里给
+                                        <div class="font-w400 font-size-xs text-muted">奥里给</div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="block-content block-content-full border-t">
+                            <a href="javascript:void(0)">
+                                <i class="fa fa-users mr-5"></i> 你可能认识的人
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 广告 -->
+                    <div class="block block-rounded">
+                        <div class="block-content block-content-full text-muted font-size-sm">
+                            &copy; <span class="js-year-copy"></span>
+                            <a class="text-muted ml-5" href="javascript:void(0)">关于我们</a>
+                            <a class="text-muted ml-5" href="javascript:void(0)">版权</a>
+                        </div>
+                        <div class="block-content block-content-full border-t">
+                            <a href="javascript:void(0)">
+                                <i class="fa fa-external-link-square mr-5"></i> 广告洽谈
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- 底部 -->
+    <footer id="page-footer" class="bg-white opacity-0">
+        <div class="content py-20 font-size-xs clearfix">
+            <div class="float-right">
+                动态 <i class="fa fa-heart text-pulse"></i>
+            </div>
+            <div class="float-left">
+                <a class="font-w600" href="javascript:void(0)">动态 1.0</a> &copy; <span class="js-year-copy">2020</span>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+<script src="assets/js/codebase.core.min.js"></script>
+<script src="assets/js/codebase.app.min.js"></script>
+<script>
+
+    $(function () {
+        var h = window.innerWidth;
+        var $leftContent = $("#leftContent");
+        var $rightContent = $("#rightContent");
+        let boo = false;
+        var topHeight = $leftContent[0].offsetTop;
+
+        function scrollContentLR() {
+            var scroH = $(document).scrollTop() + 24;
+            var offsetT = $leftContent[0].offsetTop;
+            if (boo) {
+                if (scroH <= topHeight) {
+                    //当上卷长度小于原本的高度时，设置为原始形态
+                    /* topHeight = offsetT - scroH;*/
+                    boo = false;
+                    $leftContent.removeClass("leftContent");
+                    $rightContent.removeClass("rightContent");
+                    $leftContent[0].style.position = "static";
+                    $rightContent[0].style.position = "static";
+                }
+            } else {
+                if (offsetT <= scroH) {
+                    //获取宽度
+                    //当当前div距离上方小于0时，设置为fixed固定到屏幕
+                    var leftWidth = $leftContent[0].clientWidth;
+                    var leftToLeft = $leftContent[0].offsetLeft;
+                    var rightWidth = $rightContent[0].clientWidth;
+                    var rightToRight = $rightContent[0].offsetLeft;
+                    $leftContent[0].style.position = "fixed";
+                    $rightContent[0].style.position = "fixed";
+                    /*console.log(leftToLeft);
+                    console.log(rightToRight);*/
+                    //设者宽度以及距离左边的距离
+                    $rightContent[0].style.width = rightWidth + "px";
+                    $rightContent[0].style.left = rightToRight + "px";
+                    $leftContent[0].style.width = leftWidth + "px";
+                    $leftContent[0].style.left = leftToLeft + "px";
+                    $leftContent.addClass("leftContent");
+                    $rightContent.addClass("rightContent");
+                    boo = true;
+                }
+            }
+        }
+
+        function f() {
+            console.log("执行");
+        }
+
+        if (h > 990) {
+            document.addEventListener("scroll", scrollContentLR);
+        } else {
+            document.removeEventListener("scroll", scrollContentLR)
+        }
+        window.onresize = function () {
+            scrollContentLR();
+            var h = window.innerWidth;
+            if (h > 990) {
+                document.addEventListener("scroll", scrollContentLR);
+            } else {
+                boo = false;
+                $leftContent.removeClass("leftContent");
+                $rightContent.removeClass("rightContent");
+                $leftContent[0].style.position = "static";
+                $rightContent[0].style.position = "static";
+                $leftContent[0].style.width = "";
+                $leftContent[0].style.left = "";
+                $rightContent[0].style.width = "";
+                $rightContent[0].style.left = "";
+                document.removeEventListener("scroll", scrollContentLR)
+            }
+        }
+    })
+
+</script>
+</body>
+</html>

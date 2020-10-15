@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en" class="no-focus">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>注册</title>
+    <meta name="description" content="ShareLink">
+    <meta name="author" content="dogsjjs">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="stylesheet" id="css-main" href="assets/css/codebase.min.css">
+</head>
+<body>
+
+<div id="page-container" class="main-content-boxed">
+    <main id="main-container">
+        <div class="bg-gd-emerald">
+            <div class="hero-static content content-full bg-white invisible" data-toggle="appear">
+                <div class="py-30 px-5 text-center">
+                    <a class="link-effect font-w700" href="#">
+                        <i class="si si-share"></i>
+                        <span class="font-size-xl text-primary-dark">Share</span><span class="font-size-xl">Link</span>
+                    </a>
+                    <h1 class="h2 font-w700 mt-50 mb-10">创建一个新的账户</h1>
+                    <h2 class="h4 font-w400 text-muted mb-0">请输入您的相关信息</h2>
+                </div>
+                <div class="row justify-content-center px-5">
+                    <div class="col-sm-8 col-md-6 col-xl-4">
+                        <form class="signupForm" action="#" method="post">
+                            <div class="form-group row">
+                                <div class="col-12">
+                                    <div class="form-material floating">
+                                        <input type="text" class="form-control" id="username" name="username">
+                                        <label for="username">用户名</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-12">
+                                    <div class="form-material floating">
+                                        <input type="email" class="form-control" id="email" name="email">
+                                        <label for="email">邮箱</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-12">
+                                    <div class="form-material floating">
+                                        <input type="password" class="form-control" id="password" name="password">
+                                        <label for="password">密码</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-12">
+                                    <div class="form-material floating">
+                                        <input type="password" class="form-control" id="password-confirm"
+                                               name="password-confirm">
+                                        <label for="password-confirm">确认密码</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row text-center">
+                                <div class="col-12">
+                                    <label class="css-control css-control-primary css-checkbox">
+                                        <input type="checkbox" class="css-control-input" id="terms" name="terms">
+                                        <span class="css-control-indicator"></span>
+                                        我同意服务条款
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group row gutters-tiny">
+                                <div class="col-12 mb-10">
+                                    <button type="submit" class="btn btn-block btn-hero btn-alt-success">
+                                        <i class="si si-user-follow mr-10"></i> 注册
+                                    </button>
+                                </div>
+                                <div class="col-6">
+                                    <a class="btn btn-block btn-alt-secondary" href="#" data-toggle="modal"
+                                       data-target="#modal-terms">
+                                        <i class="si si-book-open text-muted mr-10"></i> 阅读条款
+                                    </a>
+                                </div>
+                                <div class="col-6">
+                                    <a class="btn btn-block btn-alt-secondary" href="signin.html">
+                                        <i class="si si-login text-muted mr-10"></i> 登录
+                                    </a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<!-- 用户条款模态框 -->
+<div class="modal fade" id="modal-terms" tabindex="-1" role="dialog" aria-labelledby="modal-terms" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-slidedown" role="document">
+        <div class="modal-content">
+            <div class="block block-themed block-transparent mb-0">
+                <div class="block-header bg-primary-dark">
+                    <h3 class="block-title">用户条款</h3>
+                    <div class="block-options">
+                        <button type="button" class="btn-block-option" data-dismiss="modal" aria-label="Close">
+                            <i class="si si-close"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="block-content">
+                    <p>别做坏事</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-alt-secondary" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-alt-success" data-dismiss="modal">
+                    <i class="fa fa-check"></i> OK
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 用户条款模态框 -->
+
+
+<script src="assets/js/codebase.core.min.js"></script>
+
+<script src="assets/js/codebase.app.min.js"></script>
+
+<script src="assets/js/plugins/jquery-validation/jquery.validate.min.js"></script>
+
+<script>
+    jQuery(".signupForm").validate({
+        errorClass: "invalid-feedback animated fadeInDown",
+        errorElement: "div",
+        errorPlacement: function (e, r) {
+            jQuery(r).parents(".form-group > div").append(e)
+        },
+        highlight: function (e) {
+            jQuery(e).closest(".form-group").removeClass("is-invalid").addClass("is-invalid")
+        },
+        success: function (e) {
+            jQuery(e).closest(".form-group").removeClass("is-invalid"), jQuery(e).remove()
+        },
+        rules: {
+            "username": {required: !0, minlength: 3},
+            "email": {required: !0, email: !0},
+            "password": {required: !0, minlength: 5},
+            "password-confirm": {required: !0, equalTo: "#password"},
+            "terms": {required: !0}
+        },
+        messages: {
+            "username": {
+                required: "请输入用户名!",
+                minlength: "您的用户名必须至少包含3个字符"
+            },
+            "email": "请输入邮箱!",
+            "password": {
+                required: "请输入密码!",
+                minlength: "您的密码必须至少5个字符长"
+            },
+            "password-confirm": {
+                required: "请确认密码!",
+                minlength: "您的密码必须至少5个字符长",
+                equalTo: "请输入与上述相同的密码!"
+            },
+            "terms": "您必须同意服务条款!"
+        }
+    })
+</script>
+</body>
+</html>
