@@ -80,6 +80,11 @@ public class UserController {
             attributes.addFlashAttribute("msg","该用户名已被注册，请重新输入！");
             return "redirect:/user/toRegister";
         }
+        User userByEmail = userService.findUserByEmail(user.getEmail());
+        if (!ObjectUtils.isEmpty(userByEmail)){
+            attributes.addFlashAttribute("msg","该邮箱已被注册，请重新输入！");
+            return "redirect:/user/toRegister";
+        }
         boolean flag = userService.save(user);
         if (flag){
             return "redirect:/user/toLogin";
