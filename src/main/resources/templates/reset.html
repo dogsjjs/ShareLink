@@ -1,9 +1,10 @@
 <!doctype html>
-<html lang="en" class="no-focus">
+<html lang="en" class="no-focus" xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
         <title>重置密码</title>
+        <base th:href="@{/}">
         <meta name="description" content="ShareLink">
         <meta name="author" content="dogsjjs">
         <meta name="robots" content="noindex, nofollow">
@@ -27,9 +28,28 @@
                                 <form class="resetForm" action="#" method="post">
                                     <div class="form-group row">
                                         <div class="col-12">
-                                            <div class="form-material floating">
+                                            <div class="form-material floating input-group">
                                                 <input type="text" class="form-control" id="email" name="email">
                                                 <label for="email">邮箱</label>
+                                                <div class="input-group-append">
+                                                    <button class="btn btn-alt-secondary">发送验证码</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-12">
+                                            <div class="form-material floating input-group">
+                                                <input type="text" class="form-control" id="code" name="code">
+                                                <label for="code">验证码</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-12">
+                                            <div class="form-material floating">
+                                                <input type="password" class="form-control" id="password" name="password">
+                                                <label for="password">新密码</label>
                                             </div>
                                         </div>
                                     </div>
@@ -67,8 +87,25 @@
                 success: function (e) {
                     jQuery(e).closest(".form-group").removeClass("is-invalid"), jQuery(e).remove()
                 },
-                rules: {"email": {required: !0, email: !0}},
-                messages: {"email": {required: "请输入有效的邮箱地址!",email:"请输入有效的邮箱地址!"}}
+                rules: {
+                    "email": {required: !0, email: !0},
+                    "code":{required: !0, minlength: 6},
+                    "password": {required: !0, minlength: 5}
+                },
+                messages: {
+                    "email": {
+                        required: "请输入有效的邮箱地址!",
+                        email:"请输入有效的邮箱地址!"
+                    },
+                    "code": {
+                        required: "请输入验证码!",
+                        minlength:"验证码长度至少为六位!"
+                    },
+                    "password": {
+                        required: "请输入密码!",
+                        minlength: "您的密码必须至少5个字符长"
+                    }
+                }
             })
         </script>
 

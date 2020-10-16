@@ -41,6 +41,11 @@ public class UserController {
         return "register";
     }
 
+    @GetMapping("/toReset")
+    public String toReset(){
+        return "reset";
+    }
+
     @PostMapping("/login")
     public String login(@RequestParam("username") String username,
                         @RequestParam("password") String password,

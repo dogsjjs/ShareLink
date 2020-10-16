@@ -6,6 +6,19 @@ spring:
     url: jdbc:mysql://localhost:3306/share?serverTimezone=Asia/Shanghai
     username: root
     password: wh451212wh
+  mail:
+    host: smtp.163.com
+    protocol: smtp
+    default-encoding: UTF-8
+    username: wenhao02261@163.com
+    password: VSEPLSKVDCXTSAWD
+    test-connection: true
+    properties:
+      mail:
+        smtp:
+          ssl:
+            enable: true
+          auth: true
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
