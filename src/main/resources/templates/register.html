@@ -1,9 +1,10 @@
 <!doctype html>
-<html lang="en" class="no-focus">
+<html lang="en" class="no-focus" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>注册</title>
+    <base th:href="@{/}">
     <meta name="description" content="ShareLink">
     <meta name="author" content="dogsjjs">
     <meta name="robots" content="noindex, nofollow">
@@ -25,7 +26,7 @@
                 </div>
                 <div class="row justify-content-center px-5">
                     <div class="col-sm-8 col-md-6 col-xl-4">
-                        <form class="signupForm" action="#" method="post">
+                        <form class="signupForm" th:action="@{user/register}" method="post">
                             <div class="form-group row">
                                 <div class="col-12">
                                     <div class="form-material floating">
@@ -81,12 +82,13 @@
                                     </a>
                                 </div>
                                 <div class="col-6">
-                                    <a class="btn btn-block btn-alt-secondary" href="signin.html">
+                                    <a class="btn btn-block btn-alt-secondary" th:href="@{/user/toLogin}" href="login.html">
                                         <i class="si si-login text-muted mr-10"></i> 登录
                                     </a>
                                 </div>
                             </div>
                         </form>
+                        <p th:text="${msg}"></p>
                     </div>
                 </div>
             </div>

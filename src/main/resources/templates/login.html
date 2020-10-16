@@ -1,9 +1,10 @@
 <!doctype html>
-<html lang="en" class="no-focus">
+<html lang="en" class="no-focus" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>登录</title>
+    <base th:href="@{/}">
     <meta name="description" content="ShareLink">
     <meta name="author" content="dogsjjs">
     <meta name="robots" content="noindex, nofollow">
@@ -26,11 +27,11 @@
 
                 <div class="row justify-content-center px-5">
                     <div class="col-sm-8 col-md-6 col-xl-4">
-                        <form class="signinForm" action="#" method="post">
+                        <form class="signinForm" th:action="@{/user/login}" method="post">
                             <div class="form-group row">
                                 <div class="col-12">
                                     <div class="form-material floating">
-                                        <input type="text" class="form-control" id="username" name="username">
+                                        <input type="text" class="form-control" th:value="${username}" id="username" name="username">
                                         <label for="username">用户名</label>
                                     </div>
                                 </div>
@@ -50,7 +51,7 @@
                                     </button>
                                 </div>
                                 <div class="col-sm-6 mb-5">
-                                    <a class="btn btn-block btn-alt-secondary" href="signup.html">
+                                    <a class="btn btn-block btn-alt-secondary" th:href="@{/user/toRegister}" href="register.html">
                                         <i class="fa fa-plus text-muted mr-5"></i> 创建新账户
                                     </a>
                                 </div>
@@ -61,6 +62,7 @@
                                 </div>
                             </div>
                         </form>
+                        <p th:text="${msg}"></p>
                     </div>
                 </div>
             </div>

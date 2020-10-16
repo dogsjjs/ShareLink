@@ -1,9 +1,10 @@
 <!doctype html>
-<html lang="en" class="no-focus">
+<html lang="en" class="no-focus" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>动态</title>
+    <base th:href="@{/}">
     <link rel="stylesheet" id="css-main" href="assets/css/codebase.min.css">
     <style>
         .row {
@@ -106,7 +107,11 @@
                                 data-action="header_search_on">
                             <i class="fa fa-search"></i>
                         </button>
-                        <a href="signin.html" class="btn btn-alt-success ml-5">
+                        <a th:if="${session.loginUser!=null}" href="#" class="btn btn-alt-success ml-5">
+                            <i class="si si-user"></i>
+                            <span class="d-none d-sm-inline" th:text="${session.loginUser.username}">断水流</span>
+                        </a>
+                        <a th:if="${session.loginUser==null}" href="login.html" th:href="@{/user/toLogin}" class="btn btn-alt-success ml-5">
                             <i class="si si-login"></i>
                             <span class="d-none d-sm-inline">登录/注册</span>
                         </a>
