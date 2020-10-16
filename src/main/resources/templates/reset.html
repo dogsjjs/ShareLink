@@ -1,113 +1,166 @@
 <!doctype html>
 <html lang="en" class="no-focus" xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-        <title>重置密码</title>
-        <base th:href="@{/}">
-        <meta name="description" content="ShareLink">
-        <meta name="author" content="dogsjjs">
-        <meta name="robots" content="noindex, nofollow">
-        <link rel="stylesheet" id="css-main" href="assets/css/codebase.min.css">
-    </head>
-    <body>
-        <div id="page-container" class="main-content-boxed">
-            <main id="main-container">
-                <div class="bg-gd-lake">
-                    <div class="hero-static content content-full bg-white invisible" data-toggle="appear">
-                        <div class="py-30 px-5 text-center">
-                            <a class="link-effect font-w700" href="#">
-                                <i class="si si-share"></i>
-                                <span class="font-size-xl text-primary-dark">Share</span><span class="font-size-xl">Link</span>
-                            </a>
-                            <h1 class="h2 font-w700 mt-50 mb-10">别担心，我们将为您重置密码</h1>
-                            <h2 class="h4 font-w400 text-muted mb-0">请输入注册时填入的邮箱</h2>
-                        </div>
-                        <div class="row justify-content-center px-5">
-                            <div class="col-sm-8 col-md-6 col-xl-4">
-                                <form class="resetForm" action="#" method="post">
-                                    <div class="form-group row">
-                                        <div class="col-12">
-                                            <div class="form-material floating input-group">
-                                                <input type="text" class="form-control" id="email" name="email">
-                                                <label for="email">邮箱</label>
-                                                <div class="input-group-append">
-                                                    <button class="btn btn-alt-secondary">发送验证码</button>
-                                                </div>
-                                            </div>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>重置密码</title>
+    <base th:href="@{/}">
+    <meta name="description" content="ShareLink">
+    <meta name="author" content="dogsjjs">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="stylesheet" id="css-main" href="assets/css/codebase.min.css">
+    <link rel="stylesheet" href="assets/js/sweetalert2/sweetalert2.min.css">
+</head>
+<body>
+<div id="page-container" class="main-content-boxed">
+    <main id="main-container">
+        <div class="bg-gd-lake">
+            <div class="hero-static content content-full bg-white invisible" data-toggle="appear">
+                <div class="py-30 px-5 text-center">
+                    <a class="link-effect font-w700" href="#">
+                        <i class="si si-share"></i>
+                        <span class="font-size-xl text-primary-dark">Share</span><span class="font-size-xl">Link</span>
+                    </a>
+                    <h1 class="h2 font-w700 mt-50 mb-10">别担心，我们将为您重置密码</h1>
+                    <h2 class="h4 font-w400 text-muted mb-0">请输入注册时填入的邮箱</h2>
+                </div>
+                <div class="row justify-content-center px-5">
+                    <div class="col-sm-8 col-md-6 col-xl-4">
+                        <form class="resetForm" th:action="@{/user/reset}" method="post">
+                            <div class="form-group row">
+                                <div class="col-12">
+                                    <div class="form-material floating input-group">
+                                        <input type="text" class="form-control" id="email" name="email">
+                                        <label for="email">邮箱</label>
+                                        <div class="input-group-append">
+                                            <a id="sendCodeBtn" class="btn btn-alt-secondary">发送验证码</a>
                                         </div>
                                     </div>
-                                    <div class="form-group row">
-                                        <div class="col-12">
-                                            <div class="form-material floating input-group">
-                                                <input type="text" class="form-control" id="code" name="code">
-                                                <label for="code">验证码</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="col-12">
-                                            <div class="form-material floating">
-                                                <input type="password" class="form-control" id="password" name="password">
-                                                <label for="password">新密码</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <button type="submit" class="btn btn-block btn-hero btn-alt-primary">
-                                            <i class="fa fa-asterisk mr-10"></i> 重置密码
-                                        </button>
-                                        <a class="btn btn-block btn-alt-secondary" href="login.html">
-                                            <i class="si si-login text-muted mr-10"></i> 登录
-                                        </a>
-                                    </div>
-                                </form>
+                                </div>
                             </div>
-                        </div>
+                            <div class="form-group row">
+                                <div class="col-12">
+                                    <div class="form-material floating input-group">
+                                        <input type="text" class="form-control" id="code" name="code">
+                                        <label for="code">验证码</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-12">
+                                    <div class="form-material floating">
+                                        <input type="password" class="form-control" id="password" name="password">
+                                        <label for="password">新密码</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-block btn-hero btn-alt-primary">
+                                    <i class="fa fa-asterisk mr-10"></i> 重置密码
+                                </button>
+                                <a class="btn btn-block btn-alt-secondary" href="login.html">
+                                    <i class="si si-login text-muted mr-10"></i> 登录
+                                </a>
+                            </div>
+                        </form>
+                        <p th:text="${msg}"></p>
                     </div>
                 </div>
-            </main>
+            </div>
         </div>
+    </main>
+</div>
 
-        <script src="assets/js/codebase.core.min.js"></script>
+<script src="assets/js/codebase.core.min.js"></script>
 
-        <script src="assets/js/codebase.app.min.js"></script>
+<script src="assets/js/codebase.app.min.js"></script>
+<script src="assets/js/sweetalert2/sweetalert2.min.js"></script>
 
-        <script src="assets/js/plugins/jquery-validation/jquery.validate.min.js"></script>
-        <script>
-            jQuery(".resetForm").validate({
-                errorClass: "invalid-feedback animated fadeInDown",
-                errorElement: "div",
-                errorPlacement: function (e, n) {
-                    jQuery(n).parents(".form-group > div").append(e)
-                },
-                highlight: function (e) {
-                    jQuery(e).closest(".form-group").removeClass("is-invalid").addClass("is-invalid")
-                },
-                success: function (e) {
-                    jQuery(e).closest(".form-group").removeClass("is-invalid"), jQuery(e).remove()
-                },
-                rules: {
-                    "email": {required: !0, email: !0},
-                    "code":{required: !0, minlength: 6},
-                    "password": {required: !0, minlength: 5}
-                },
-                messages: {
-                    "email": {
-                        required: "请输入有效的邮箱地址!",
-                        email:"请输入有效的邮箱地址!"
-                    },
-                    "code": {
-                        required: "请输入验证码!",
-                        minlength:"验证码长度至少为六位!"
-                    },
-                    "password": {
-                        required: "请输入密码!",
-                        minlength: "您的密码必须至少5个字符长"
-                    }
+<script src="assets/js/plugins/jquery-validation/jquery.validate.min.js"></script>
+<script th:inline="javascript">
+    jQuery(".resetForm").validate({
+        errorClass: "invalid-feedback animated fadeInDown",
+        errorElement: "div",
+        errorPlacement: function (e, n) {
+            jQuery(n).parents(".form-group > div").append(e)
+        },
+        highlight: function (e) {
+            jQuery(e).closest(".form-group").removeClass("is-invalid").addClass("is-invalid")
+        },
+        success: function (e) {
+            jQuery(e).closest(".form-group").removeClass("is-invalid"), jQuery(e).remove()
+        },
+        rules: {
+            "email": {required: !0, email: !0},
+            "code": {required: !0, minlength: 6},
+            "password": {required: !0, minlength: 5}
+        },
+        messages: {
+            "email": {
+                required: "请输入有效的邮箱地址!",
+                email: "请输入有效的邮箱地址!"
+            },
+            "code": {
+                required: "请输入验证码!",
+                minlength: "验证码长度至少为六位!"
+            },
+            "password": {
+                required: "请输入密码!",
+                minlength: "您的密码必须至少5个字符长"
+            }
+        }
+    });
+
+    let $sendCodeBtn = $("#sendCodeBtn");
+    let countDown;
+
+    $sendCodeBtn.click(function () {
+        let flag = $(".resetForm").validate().element($("#email"));
+        if (!flag) {
+            return false;
+        }
+        // 发送邮件
+        sendEmail();
+        let count = 60;
+        countDown = setInterval(() => {
+            if (count === 0) {
+                $sendCodeBtn.text('重新发送').removeClass("disabled");
+                clearInterval(countDown);
+            } else {
+                $sendCodeBtn.addClass("disabled");
+                $sendCodeBtn.text(count + '秒后可重新获取');
+            }
+            count--;
+        }, 1000);
+    });
+
+    function sendEmail() {
+        let email = $("#email").val();
+        $.ajax({
+            url:/*[[@{/send/email}]]*/"http://localhost:8080/send/email",
+            type: "post",
+            data: {email: email},
+            "success": function (response) {
+                var result = response.result;
+                if (result == "SUCCESS") {
+                    Swal.fire({
+                        title: '发送成功，请注意查收',
+                        type: 'success'
+                    });
+                } else if (result == "FAILED") {
+                    Swal.fire({
+                        title: '错误',
+                        text: response.message,
+                        type: 'warning'
+                    });
+                    $("#email").val("");
+                    clearInterval(countDown);
                 }
-            })
-        </script>
+            }
+        });
+    }
 
-    </body>
+</script>
+
+</body>
 </html>

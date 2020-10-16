@@ -53,6 +53,7 @@ public class ShiroConfig {
         map.put("/user/toRegister","anon");// 前往注册页面无需认证
         map.put("/user/login","anon");// 登录请求
         map.put("/user/register","anon");// 注册请求
+        map.put("/send/email","anon");// 发送邮件请求
 
         factoryBean.setFilterChainDefinitionMap(map);
 

@@ -15,4 +15,9 @@ public interface UserService extends IService<User> {
 
     User findUserByUsername(String username);
 
+    boolean checkCode(String email, String code);
+
+    User findUserByEmail(String email);
+
+    boolean resetUser(User user);
 }

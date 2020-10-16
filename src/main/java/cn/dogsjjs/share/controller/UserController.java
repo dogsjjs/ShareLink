@@ -89,5 +89,30 @@ public class UserController {
         }
     }
 
+    @PostMapping("/reset")
+    public String reset(@RequestParam("email") String email,
+                        @RequestParam("code") String code,
+                        @RequestParam("password") String password,
+                        RedirectAttributes attributes){
+        User userByEmail = userService.findUserByEmail(email);
+        if (ObjectUtils.isEmpty(userByEmail)){
+            attributes.addFlashAttribute("msg","该邮箱尚未注册，请重新输入！");
+            return "redirect:/user/toReset";
+        }
+        boolean flag = userService.checkCode(email,code);
+        if (!flag){
+            attributes.addFlashAttribute("msg","验证码错误");
+            return "redirect:/user/toReset";
+        }
+        User user = userByEmail;
+        user.setPassword(password);
+        boolean saveOrUpdate = userService.resetUser(user);
+        if (!saveOrUpdate){
+            attributes.addFlashAttribute("msg","更改密码失败！");
+            return "redirect:/user/toReset";
+        }
+        return "redirect:/user/toLogin";
+    }
+
 }
 
